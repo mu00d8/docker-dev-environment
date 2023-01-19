@@ -1,0 +1,15 @@
+bash_history
+zsh_history
+Cargo.lock
+target
+.vscode
+**/perf.data
+**/perf.data.old
+
+.ccache
+/data/ccache
+
+__pycache__
+
+*.so
+*.o
