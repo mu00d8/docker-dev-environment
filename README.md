@@ -1,6 +1,6 @@
 # Docker Dev Environment
 
-This repository contains convenience scripts to work with a dockerized environment, mostly to test fuzzing stuff. 
+This repository contains convenience scripts to work with a dockerized environment, mostly to test fuzzing stuff.
 
 ## Usage
 
@@ -19,14 +19,14 @@ This repository is structured as follows:
 
 
 ## Initial Build
-The default Dockerfile will install a number of packages we found useful, Rust, and AFL++. 
+The default Dockerfile will install a number of packages we found useful, Rust, and AFL++.
 It will setup everything, such that the convenience scripts allow you to become the user "user".
 
 ```bash
-# build image for huzz
+# build image
 ./env/build.sh
 
-# if you want to ignore the docker cache, run
+# if you want to ignore the docker cache and build the whole image from scratch, run
 ./env/build.sh --no-cache
 ```
 
