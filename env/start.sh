@@ -22,7 +22,8 @@ if [[ -n "$container" ]]; then
     cmd="docker start $container"
     log_success "[+] $cmd"
     $cmd > /dev/null
-    if [[ -v NO_TTY ]]; then
+    # only if we are not on Mac, check if NO_TTY is set
+    if [[ "$(uname)" != "Darwin" ]] && [[ -v NO_TTY ]]; then
         HAS_TTY=""
     else
         HAS_TTY="-t"

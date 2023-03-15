@@ -8,8 +8,13 @@ source config.sh
 cd ..
 
 log_success "[+] Building docker image"
-docker build --build-arg USER_UID="$(id -u)" --build-arg USER_GID="$(id -g)" --build-arg NUM_JOBS=$(nproc) --target dev $@ -t $IMAGE_NAME .
-if [[ $?  -ne 0 ]]; then
+if [[ "$(uname)" == "Darwin" ]]; then
+    # if this is a Mac, don't pass USER_UID and USER_GID but use the Dockerfile's defaults
+    docker build --build-arg NUM_JOBS=$(nproc) --target dev $@ -t $IMAGE_NAME .
+else
+    docker build --build-arg USER_UID="$(id -u)" --build-arg USER_GID="$(id -g)" --build-arg NUM_JOBS=$(nproc) --target dev $@ -t $IMAGE_NAME .
+fi
+if [[ $? -ne 0 ]]; then
     log_error "[+] Error while building the docker image."
     exit 1
 else
