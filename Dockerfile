@@ -53,7 +53,7 @@ RUN wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py \
   && echo source ~/.gdbinit-gef.py >> ~/.gdbinit
 
 # Install Rust
-RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | bash -s -- -y --default-toolchain nightly-2022-09-06
+RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | bash -s -- -y --default-toolchain nightly-2023-03-22
 ENV PATH="/home/user/.cargo/bin:${PATH}"
 
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
