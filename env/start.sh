@@ -74,6 +74,10 @@ log_success "[+] Using $IMAGE_NAME as docker image"
 cmd+=" ${IMAGE_NAME}"
 
 log_success "[+] $(echo $cmd | xargs)"
-$cmd > /dev/null
+container_id=$($cmd)
+
+# Permission fixup since mounts are initially owned by root
+echo "[+] Fixing permission of /home/user/.config"
+docker exec "$container_id" sudo chown -R user:user /home/user/.config
 
 log_success "[+] Rerun $0 to connect to the new container."
