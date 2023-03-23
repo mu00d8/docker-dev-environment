@@ -59,8 +59,5 @@ ENV PATH="/home/user/.cargo/bin:${PATH}"
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
     -t agnoster
 
-# Install AFL++
-RUN git clone https://github.com/AFLplusplus/AFLplusplus -b 4.00c && cd AFLplusplus && make all && sudo make install
-
 COPY env/check_env.sh /usr/bin/
 USER user
