@@ -27,7 +27,7 @@ RUN \
     g++ libz3-dev zlib1g-dev libc++-dev mercurial nano
 
 # install python packages
-RUN sudo pip3 install mypy pylint matplotlib pyelftools lit pyyaml psutil
+RUN sudo pip3 install mypy pylint matplotlib lit pyyaml
 
 RUN locale-gen en_US.UTF-8
 
