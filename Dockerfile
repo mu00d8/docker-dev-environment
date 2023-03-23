@@ -13,7 +13,7 @@ RUN \
     apt update -y && apt install -y \
     build-essential git cmake binutils-gold gosu sudo valgrind python3-pip \
     bison flex \
-    llvm clang \
+    llvm clang clangd \
     zsh powerline fonts-powerline \
     iputils-ping iproute2 ripgrep \
     libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \
